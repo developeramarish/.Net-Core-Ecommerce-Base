@@ -53,7 +53,7 @@ namespace Shop.Core.Entites
         }
         public List<Media> Media { get; set; }
 
-        public List<ProductComponent> ProductComponents { get; set; }
+        public List<ProductComponentCompatibility> CompatibleComponents { get; set; }
 
 
         public decimal PricePreTax

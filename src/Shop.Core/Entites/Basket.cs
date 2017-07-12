@@ -11,7 +11,7 @@ namespace Shop.Core.Entites
         [Key]
         public int BasketId { get; set; }
         public string BasketReference { get; set; }
-        public List<Product> Products { get; set; }
+        public List<BasketProduct> Products { get; set; }
         public List<ProductConfiguration> ProductConfigurations { get; set; }
         public ShippingMethod ShippingMethod { get; set; }
         public DiscountCode DiscountCode { get; set; }
