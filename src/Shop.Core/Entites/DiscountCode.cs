@@ -74,6 +74,14 @@ namespace Shop.Core.Entites
             }
         }
 
+        public DiscountCode()
+        {
+            DiscountCodeId = 0;
+            DiscountCodeReference = string.Empty;
+
+            DiscountCodeType = DiscountCodeType.Unknown;
+        }
+
         public DiscountCode CreateReference(IReferenceGenerator referenceGenerator)
         {
             DiscountCodeReference = referenceGenerator.CreateReference("D-", Constants.Constants.ReferenceLength);
