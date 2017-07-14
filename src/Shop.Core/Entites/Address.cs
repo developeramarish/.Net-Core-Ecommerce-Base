@@ -104,15 +104,6 @@ namespace Shop.Core.Entites
         {
             AddressId = 0;
             AddressReference = string.Empty;
-
-            AddressLine1 = string.Empty;
-            AddressLine2 = string.Empty;
-            AddressLine3 = string.Empty;
-            AddressLine4 = string.Empty;
-            Postcode = string.Empty;
-            County = string.Empty;
-            CountryCode = string.Empty;
-            Udprn = string.Empty;
         }
 
         public Address CreateReference(IReferenceGenerator referenceGenerator)
