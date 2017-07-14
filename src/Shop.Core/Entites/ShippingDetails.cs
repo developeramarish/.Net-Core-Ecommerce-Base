@@ -14,6 +14,7 @@ namespace Shop.Core.Entites
         private DateTime? _estimatedDeliveryDate;
         private DateTime? _estimatedShippingDeliveryDate;
         private string _trackingReference;
+        private string _trackingUrl;
         private decimal _pricePaid;
 
         [Key]
@@ -29,6 +30,28 @@ namespace Shop.Core.Entites
 
                 IsDirty = true;
                 _shippingProvider = value;
+            }
+        }
+        public string TrackingReference
+        {
+            get => _trackingReference;
+            set
+            {
+                if (_trackingReference == value) return;
+
+                IsDirty = true;
+                _trackingReference = value;
+            }
+        }
+        public string TrackingUrl
+        {
+            get => _trackingUrl;
+            set
+            {
+                if (_trackingUrl == value) return;
+
+                IsDirty = true;
+                _trackingUrl = value;
             }
         }
 
@@ -90,21 +113,9 @@ namespace Shop.Core.Entites
             }
         }
 
-        public string Trackingreference
-        {
-            get => _trackingReference;
-            set
-            {
-                if (_trackingReference == value) return;
-
-                IsDirty = true;
-                _trackingReference = value;
-            }
-        }
-
         public ShippingDetails CreateReference(IReferenceGenerator referenceGenerator)
         {
-            ShippingDetailsReference = referenceGenerator.CreateReference("B-", Constants.Constants.ReferenceLength);
+            ShippingDetailsReference = referenceGenerator.CreateReference("S-", Constants.Constants.ReferenceLength);
             return this;
         }
     }

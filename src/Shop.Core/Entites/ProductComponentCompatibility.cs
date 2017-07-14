@@ -4,7 +4,7 @@ using Shop.Core.Interfaces;
 
 namespace Shop.Core.Entites
 {
-    public class ProductComponentCompatibility : LifetimeBase, IReferenceable<Product>
+    public class ProductComponentCompatibility : LifetimeBase, IReferenceable<ProductComponentCompatibility>
     {
         [Key]
         public int ProductComponentCompatibilityId { get; set; }
@@ -14,9 +14,9 @@ namespace Shop.Core.Entites
         public ProductComponent Component { get; set; }
 
 
-        public Product CreateReference(IReferenceGenerator referenceGenerator)
+        public ProductComponentCompatibility CreateReference(IReferenceGenerator referenceGenerator)
         {
-            ProductComponentCompatibilityReference = referenceGenerator.CreateReference("P-", Constants.Constants.ReferenceLength);
+            ProductComponentCompatibilityReference = referenceGenerator.CreateReference("PCC-", Constants.Constants.ReferenceLength);
             return this;
         }
     }

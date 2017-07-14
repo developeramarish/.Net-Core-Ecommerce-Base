@@ -67,6 +67,10 @@ namespace Shop.Core.Entites
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
 
+        public List<Order> Orders { get; set; }
+        public List<Basket> Baskets { get; set; }
+
+
 
         public Customer CreateReference(IReferenceGenerator referenceGenerator)
         {
