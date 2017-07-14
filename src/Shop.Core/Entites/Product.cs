@@ -55,7 +55,6 @@ namespace Shop.Core.Entites
 
         public List<ProductComponentCompatibility> CompatibleComponents { get; set; }
 
-
         public decimal PricePreTax
         {
             get => _pricePreTax;
@@ -79,6 +78,7 @@ namespace Shop.Core.Entites
                 _availableForOrder = value;
             }
         }
+
         public bool Configureable
         {
             get => _availableForOrder;
@@ -90,6 +90,8 @@ namespace Shop.Core.Entites
                 _availableForOrder = value;
             }
         }
+        public List<ConfigurationSlot> ConfigurationSlots { get; set; }
+
         
         public Product CreateReference(IReferenceGenerator referenceGenerator)
         {
