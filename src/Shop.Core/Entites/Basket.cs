@@ -13,7 +13,6 @@ namespace Shop.Core.Entites
         [Key]
         public int BasketId { get; set; }
         public string BasketReference { get; set; }
-        public List<BasketProduct> Products { get; set; }
         public List<ProductConfiguration> ProductConfigurations { get; set; }
         public ShippingMethod ShippingMethod { get; set; }
         public DiscountCode DiscountCode { get; set; }
@@ -23,10 +22,8 @@ namespace Shop.Core.Entites
             BasketId = 0;
             BasketReference = string.Empty;
 
-            Products = new List<BasketProduct>();
             ProductConfigurations = new List<ProductConfiguration>();
             ShippingMethod = ShippingMethod.FirstClass;
-            DiscountCode = null;
         }
 
         public Basket CreateReference(IReferenceGenerator referenceGenerator)
