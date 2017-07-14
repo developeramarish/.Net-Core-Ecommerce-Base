@@ -10,7 +10,7 @@ namespace Shop.Core.Entites
     {
         private string _productComponentName;
         private string _productComponentDescription;
-        private ConfigurationSlot _configurationSlot;
+        private ComponentSlot _componentSlot;
         private bool _availableForOrder;
         private decimal _pricePreTax;
         private decimal _shippingWeightKg;
@@ -44,15 +44,15 @@ namespace Shop.Core.Entites
         
         public List<Media> Media { get; set; }
 
-        public ConfigurationSlot ConfigurationSlot
+        public ComponentSlot ComponentSlot
         {
-            get => _configurationSlot;
+            get => _componentSlot;
             set
             {
-                if (_configurationSlot == value) return;
+                if (_componentSlot == value) return;
 
                 IsDirty = true;
-                _configurationSlot = value;
+                _componentSlot = value;
             }
         }
 
@@ -90,6 +90,15 @@ namespace Shop.Core.Entites
                 IsDirty = true;
                 _shippingWeightKg = value;
             }
+        }
+
+        public ProductComponent()
+        {
+            ProductComponentId = 0;
+            ProductComponentReference = string.Empty;
+
+            Media = new List<Media>();
+            ComponentSlot = ComponentSlot.Unknown;
         }
 
         public ProductComponent CreateReference(IReferenceGenerator referenceGenerator)
