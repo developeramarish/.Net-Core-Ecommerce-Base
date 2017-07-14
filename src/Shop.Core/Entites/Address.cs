@@ -113,7 +113,6 @@ namespace Shop.Core.Entites
             County = string.Empty;
             CountryCode = string.Empty;
             Udprn = string.Empty;
-            
         }
 
         public Address CreateReference(IReferenceGenerator referenceGenerator)

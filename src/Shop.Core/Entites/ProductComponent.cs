@@ -15,7 +15,6 @@ namespace Shop.Core.Entites
         private decimal _pricePreTax;
         private decimal _shippingWeightKg;
 
-
         [Key]
         public int ProductComponentId { get; set; }
         public string ProductComponentReference { get; set; }

@@ -8,7 +8,6 @@ namespace Shop.Core.Entites
 {
     public class Product : LifetimeBase, IReferenceable<Product>
     {
-
         private string _productName;
         private string _productDescription;
         private string _productShortDescription;
