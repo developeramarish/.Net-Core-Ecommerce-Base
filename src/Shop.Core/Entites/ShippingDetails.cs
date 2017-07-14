@@ -9,6 +9,7 @@ namespace Shop.Core.Entites
     public class ShippingDetails : LifetimeBase, IReferenceable<ShippingDetails>
     {
         private ShippingProvider _shippingProvider;
+        private ShippingMethod _shippingMethod;
         private DateTime? _shippedDate;
         private DateTime? _deliveredDate;
         private DateTime? _estimatedDeliveryDate;
@@ -30,6 +31,17 @@ namespace Shop.Core.Entites
 
                 IsDirty = true;
                 _shippingProvider = value;
+            }
+        }
+        public ShippingMethod ShippingMethod
+        {
+            get => _shippingMethod;
+            set
+            {
+                if (_shippingMethod == value) return;
+
+                IsDirty = true;
+                _shippingMethod = value;
             }
         }
         public string TrackingReference
@@ -111,6 +123,17 @@ namespace Shop.Core.Entites
                 IsDirty = true;
                 _pricePaid = value;
             }
+        }
+
+        public ShippingDetails()
+        {
+            ShippingDetailsId = 0;
+            ShippingDetailsReference = string.Empty;
+
+            ShippingProvider = ShippingProvider.Unknown;
+            ShippingMethod = ShippingMethod.Unknown;
+
+            PricePaid = 0.0M;
         }
 
         public ShippingDetails CreateReference(IReferenceGenerator referenceGenerator)
