@@ -54,7 +54,6 @@ namespace Shop.Core.Entites
         }
         public List<Media> Media { get; set; }
 
-        public List<ProductComponentCompatibility> CompatibleComponents { get; set; }
 
         public decimal PricePreTax
         {
@@ -67,6 +66,18 @@ namespace Shop.Core.Entites
                 _pricePreTax = value;
             }
         }
+        public decimal ShippingWeightKg
+        {
+            get => _shippingWeightKg;
+            set
+            {
+                if (_shippingWeightKg == value) return;
+
+                IsDirty = true;
+                _shippingWeightKg = value;
+            }
+        }
+
 
         public bool AvailableForOrder
         {
@@ -91,20 +102,21 @@ namespace Shop.Core.Entites
                 _availableForOrder = value;
             }
         }
-        public List<ConfigurationSlot> ConfigurationSlots { get; set; }
+        public List<ComponentSlot> ComponentSlots { get; set; }
+        public List<ProductComponentCompatibility> CompatibleComponents { get; set; }
 
-        public decimal ShippingWeightKg
+        public Product()
         {
-            get => _shippingWeightKg;
-            set
-            {
-                if (_shippingWeightKg == value) return;
+            ProductId = 0;
+            ProductReference = string.Empty;
 
-                IsDirty = true;
-                _shippingWeightKg = value;
-            }
+            PricePreTax = 0.0M;
+            ShippingWeightKg = 0.0M;
+
+            Media = new List<Media>();
+            CompatibleComponents = new List<ProductComponentCompatibility>();
+            ComponentSlots = new List<ComponentSlot>();
         }
-
 
         public Product CreateReference(IReferenceGenerator referenceGenerator)
         {
