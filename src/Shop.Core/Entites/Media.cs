@@ -52,8 +52,7 @@ namespace Shop.Core.Entites
             MediaId = 0;
             MediaReference = string.Empty;
 
-            MediaType = this.MediaType.Unknown;
-            Url = string.Empty;
+            MediaType = MediaType.Unknown;
             Index = 0;
         }
 
