@@ -10,12 +10,21 @@ namespace Shop.Core.Entites
         [Key]
         public int OrderId { get; set; }
         public string OrderReference { get; set; }
-        public List<OrderProduct> Products { get; set; }
+        public List<ProductConfiguration> Products { get; set; }
         public DiscountCode DiscountCode { get; set; }
-
         public ShippingDetails ShippingMethod { get; set; }
         public Address ShippingAddress { get; set; }
         public Address BillingAddress { get; set; }
+        public Payment Payment { get; set; }
+
+
+        public Order()
+        {
+            OrderId = 0;
+            OrderReference = string.Empty;
+
+            Products = new List<ProductConfiguration>();
+        }
 
         public Order CreateReference(IReferenceGenerator referenceGenerator)
         {
