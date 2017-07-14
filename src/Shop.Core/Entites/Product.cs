@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Shop.Core.BaseObjects;
+using Shop.Core.Enums;
 using Shop.Core.Interfaces;
 
 namespace Shop.Core.Entites
@@ -13,6 +14,7 @@ namespace Shop.Core.Entites
         private string _productShortDescription;
         private bool _availableForOrder;
         private decimal _pricePreTax;
+        private decimal _shippingWeightKg;
 
         [Key]
         public int ProductId { get; set; }
@@ -92,7 +94,19 @@ namespace Shop.Core.Entites
         }
         public List<ConfigurationSlot> ConfigurationSlots { get; set; }
 
-        
+        public decimal ShippingWeightKg
+        {
+            get => _shippingWeightKg;
+            set
+            {
+                if (_shippingWeightKg == value) return;
+
+                IsDirty = true;
+                _shippingWeightKg = value;
+            }
+        }
+
+
         public Product CreateReference(IReferenceGenerator referenceGenerator)
         {
             ProductReference = referenceGenerator.CreateReference("P-", Constants.Constants.ReferenceLength);
