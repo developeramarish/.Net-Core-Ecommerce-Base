@@ -1,6 +1,6 @@
 ﻿namespace Shop.Core.Enums
 {
-    public enum ConfigurationSlot
+    public enum ComponentSlot
     {
         Unknown = 0,
         Slot1 = 1,
