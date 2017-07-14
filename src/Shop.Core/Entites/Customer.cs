@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Shop.Core.BaseObjects;
 using Shop.Core.Interfaces;
@@ -70,7 +71,15 @@ namespace Shop.Core.Entites
         public List<Order> Orders { get; set; }
         public List<Basket> Baskets { get; set; }
 
+        public Customer()
+        {
+            CustomerId = 0;
+            CustomerReference = string.Empty;
 
+            Addresses = new List<Address>();
+            Orders = new List<Order>();
+            Baskets = new List<Basket>();
+        }
 
         public Customer CreateReference(IReferenceGenerator referenceGenerator)
         {
