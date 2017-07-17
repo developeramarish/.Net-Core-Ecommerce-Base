@@ -15,8 +15,12 @@ namespace Shop.Core.Entites
 
         [Key]
         public int CustomerId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string CustomerReference { get; set; }
 
+        [StringLength(25)]
         public string Title
         {
             get => _title;
@@ -28,6 +32,8 @@ namespace Shop.Core.Entites
                 _title = value;
             }
         }
+
+        [StringLength(250)]
         public string Name
         {
             get => _name;
@@ -40,6 +46,7 @@ namespace Shop.Core.Entites
             }
         }
 
+        [StringLength(250)]
         public string EmailAddress
         {
             get => _emailAddress;
@@ -51,6 +58,8 @@ namespace Shop.Core.Entites
                 _emailAddress = value;
             }
         }
+
+        [StringLength(250)]
         public string TelephoneNumber
         {
             get => _telephoneNumber;
