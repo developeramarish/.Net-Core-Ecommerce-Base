@@ -1,4 +1,5 @@
-﻿using Shop.Core.BaseObjects;
+﻿using System.ComponentModel.DataAnnotations;
+using Shop.Core.BaseObjects;
 using Shop.Core.Enums;
 using Shop.Core.Interfaces;
 
@@ -10,7 +11,11 @@ namespace Shop.Core.Entites
         private string _url;
         private int _index;
 
+        [Key]
         public int MediaId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string MediaReference { get; set; }
 
         public MediaType MediaType
@@ -24,6 +29,8 @@ namespace Shop.Core.Entites
                 _mediaType = value;
             }
         }
+
+        [StringLength(2000)]
         public string Url
         {
             get => _url;
@@ -35,6 +42,7 @@ namespace Shop.Core.Entites
                 _url = value;
             }
         }
+
         public int Index
         {
             get => _index;
