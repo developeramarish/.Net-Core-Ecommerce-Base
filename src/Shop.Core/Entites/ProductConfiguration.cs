@@ -9,6 +9,9 @@ namespace Shop.Core.Entites
     {
         [Key]
         public int ProductConfigurationId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string ProductConfigurationReference { get; set; }
 
         public Product BaseProduct { get; set; }
