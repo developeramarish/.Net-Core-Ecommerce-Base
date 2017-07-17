@@ -17,8 +17,13 @@ namespace Shop.Core.Entites
 
         [Key]
         public int ProductComponentId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string ProductComponentReference { get; set; }
 
+        [Required]
+        [StringLength(100)]
         public string ProductComponentName
         {
             get => _productComponentName;
@@ -30,6 +35,9 @@ namespace Shop.Core.Entites
                 _productComponentName = value;
             }
         }
+
+        [Required]
+        [StringLength(10000)]
         public string ProductComponentDescription
         {
             get => _productComponentDescription;
@@ -56,6 +64,7 @@ namespace Shop.Core.Entites
             }
         }
 
+        [DataType(DataType.Currency)]
         public decimal PricePreTax
         {
             get => _pricePreTax;
