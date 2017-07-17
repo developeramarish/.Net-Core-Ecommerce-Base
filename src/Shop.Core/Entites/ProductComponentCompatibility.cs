@@ -8,6 +8,9 @@ namespace Shop.Core.Entites
     {
         [Key]
         public int ProductComponentCompatibilityId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string ProductComponentCompatibilityReference { get; set; }
 
         public Product Product { get; set; }
