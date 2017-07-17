@@ -11,7 +11,11 @@ namespace Shop.Core.Entites
 
         [Key]
         public int BasketId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string BasketReference { get; set; }
+
         public List<ProductConfiguration> ProductConfigurations { get; set; }
         public ShippingMethod ShippingMethod { get; set; }
         public DiscountCode DiscountCode { get; set; }
