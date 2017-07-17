@@ -9,7 +9,11 @@ namespace Shop.Core.Entites
     {
         [Key]
         public int OrderId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string OrderReference { get; set; }
+
         public List<ProductConfiguration> Products { get; set; }
         public DiscountCode DiscountCode { get; set; }
         public ShippingDetails ShippingMethod { get; set; }
