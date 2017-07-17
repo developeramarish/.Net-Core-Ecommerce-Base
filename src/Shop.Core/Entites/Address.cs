@@ -17,8 +17,13 @@ namespace Shop.Core.Entites
 
         [Key]
         public int AddressId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string AddressReference { get; set; }
 
+        [Required]
+        [StringLength(100)]
         public string AddressLine1
         {
             get => _addressLine1;
@@ -29,6 +34,8 @@ namespace Shop.Core.Entites
                 IsDirty = true;
             }
         }
+
+        [StringLength(100)]
         public string AddressLine2
         {
             get => _addressLine2;
@@ -39,6 +46,8 @@ namespace Shop.Core.Entites
                 IsDirty = true;
             }
         }
+
+        [StringLength(100)]
         public string AddressLine3
         {
             get => _addressLine3;
@@ -49,6 +58,8 @@ namespace Shop.Core.Entites
                 IsDirty = true;
             }
         }
+
+        [StringLength(100)]
         public string AddressLine4
         {
             get => _addressLine4;
@@ -59,6 +70,8 @@ namespace Shop.Core.Entites
                 IsDirty = true;
             }
         }
+
+        [StringLength(25)]
         public string Postcode
         {
             get => _postcode;
@@ -69,6 +82,8 @@ namespace Shop.Core.Entites
                 IsDirty = true;
             }
         }
+
+        [StringLength(100)]
         public string County
         {
             get => _county;
@@ -79,6 +94,8 @@ namespace Shop.Core.Entites
                 IsDirty = true;
             }
         }
+
+        [StringLength(10)]
         public string CountryCode
         {
             get => _countryCode;
@@ -89,6 +106,8 @@ namespace Shop.Core.Entites
                 IsDirty = true;
             }
         }
+
+        [StringLength(50)]
         public string Udprn
         {
             get => _udprn;
