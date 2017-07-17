@@ -15,8 +15,13 @@ namespace Shop.Core.Entites
 
         [Key]
         public int DiscountCodeId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string DiscountCodeReference { get; set; }
 
+        [Required]
+        [StringLength(25)]
         public string Code
         {
             get => _code;
@@ -40,6 +45,8 @@ namespace Shop.Core.Entites
                 _discountCodeType = value;
             }
         }
+
+        [Required]
         public decimal DiscountAmount
         {
             get => _discountAmount;
