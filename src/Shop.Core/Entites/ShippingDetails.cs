@@ -20,6 +20,9 @@ namespace Shop.Core.Entites
 
         [Key]
         public int ShippingDetailsId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string ShippingDetailsReference { get; set; }
 
         public ShippingProvider ShippingProvider
@@ -67,6 +70,8 @@ namespace Shop.Core.Entites
             }
         }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? EstimatedShippingDate
         {
             get => _estimatedShippingDeliveryDate;
@@ -78,6 +83,9 @@ namespace Shop.Core.Entites
                 _estimatedShippingDeliveryDate = value;
             }
         }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? ShippedDate
         {
             get => _shippedDate;
@@ -90,6 +98,8 @@ namespace Shop.Core.Entites
             }
         }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? EstimatedDeliveryDate
         {
             get => _estimatedDeliveryDate;
@@ -101,6 +111,9 @@ namespace Shop.Core.Entites
                 _estimatedDeliveryDate = value;
             }
         }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? DeliveredDate
         {
             get => _deliveredDate;
@@ -113,6 +126,7 @@ namespace Shop.Core.Entites
             }
         }
 
+        [DataType(DataType.Currency)]
         public decimal PricePaid
         {
             get => _pricePaid;
