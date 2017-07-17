@@ -12,6 +12,9 @@ namespace Shop.Core.Entites
 
         [Key]
         public int PaymentId { get; set; }
+
+        [Required]
+        [StringLength(100)]
         public string PaymentReference { get; set; }
 
         public PaymentServiceProvider PaymentServiceProvider
