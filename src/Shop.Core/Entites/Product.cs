@@ -17,8 +17,13 @@ namespace Shop.Core.Entites
 
         [Key]
         public int ProductId { get; set; }
+
+        [Required]
+        [StringLength(25)]
         public string ProductReference { get; set; }
 
+        [Required]
+        [StringLength(100)]
         public string ProductName
         {
             get => _productName;
@@ -30,6 +35,9 @@ namespace Shop.Core.Entites
                 _productName = value;
             }
         }
+
+        [Required]
+        [StringLength(500)]
         public string ProductShortDescription
         {
             get => _productShortDescription;
@@ -41,6 +49,9 @@ namespace Shop.Core.Entites
                 _productShortDescription = value;
             }
         }
+
+        [Required]
+        [StringLength(10000)]
         public string ProductDescription
         {
             get => _productDescription;
@@ -52,9 +63,10 @@ namespace Shop.Core.Entites
                 _productDescription = value;
             }
         }
+
         public List<Media> Media { get; set; }
 
-
+        [DataType(DataType.Currency)]
         public decimal PricePreTax
         {
             get => _pricePreTax;
