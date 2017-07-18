@@ -5,8 +5,6 @@ namespace Shop.Infrastructure.Data
 {
     public class ShopContext : DbContext
     {
-        //private readonly string _databaseName = Constants.DefaultDatabaseName;
-
         public ShopContext(DbContextOptions options) : base(options)
         {
         }
@@ -26,7 +24,6 @@ namespace Shop.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
             //Ensure the IsDirty check (LifetimeBase) is not mapped to the db
             modelBuilder.Entity<Address>().Ignore(x => x.IsDirty);
             modelBuilder.Entity<Basket>().Ignore(x => x.IsDirty);
