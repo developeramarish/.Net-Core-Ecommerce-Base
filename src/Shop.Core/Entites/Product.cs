@@ -142,6 +142,8 @@ namespace Shop.Core.Entites
             ComponentSlots = new List<ComponentSlot>();
         }
 
+        public decimal Price() => PricePreTax + (PricePreTax * TaxRate);
+
         public Product CreateReference(IReferenceGenerator referenceGenerator)
         {
             ProductReference = referenceGenerator.CreateReference("P-", Constants.Constants.ReferenceLength);
