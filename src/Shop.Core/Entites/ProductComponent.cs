@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Shop.Core.BaseObjects;
-using Shop.Core.Enums;
 using Shop.Core.Interfaces;
 
 namespace Shop.Core.Entites
@@ -107,7 +106,6 @@ namespace Shop.Core.Entites
             ProductComponentReference = string.Empty;
 
             Media = new List<Media>();
-            ComponentSlot = ComponentSlot.Unknown;
         }
 
         public ProductComponent CreateReference(IReferenceGenerator referenceGenerator)

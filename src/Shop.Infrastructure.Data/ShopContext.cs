@@ -12,6 +12,7 @@ namespace Shop.Infrastructure.Data
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<ComponentSlot> ComponentSlots { get; set; }
         public DbSet<DiscountCode> DiscountCodes { get; set; }
         public DbSet<Media> Media { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -28,6 +29,7 @@ namespace Shop.Infrastructure.Data
             modelBuilder.Entity<Address>().Ignore(x => x.IsDirty);
             modelBuilder.Entity<Basket>().Ignore(x => x.IsDirty);
             modelBuilder.Entity<Customer>().Ignore(x => x.IsDirty);
+            modelBuilder.Entity<ComponentSlot>().Ignore(x => x.IsDirty);
             modelBuilder.Entity<DiscountCode>().Ignore(x => x.IsDirty);
             modelBuilder.Entity<Media>().Ignore(x => x.IsDirty);
             modelBuilder.Entity<Order>().Ignore(x => x.IsDirty);
