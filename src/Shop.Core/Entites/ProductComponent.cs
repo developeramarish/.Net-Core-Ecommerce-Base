@@ -13,6 +13,8 @@ namespace Shop.Core.Entites
         private bool _availableForOrder;
         private decimal _pricePreTax;
         private decimal _shippingWeightKg;
+        private decimal _taxRate;
+
 
         [Key]
         public int ProductComponentId { get; set; }
@@ -76,6 +78,18 @@ namespace Shop.Core.Entites
             }
         }
 
+        public decimal TaxRate
+        {
+            get => _taxRate;
+            set
+            {
+                if (_taxRate == value) return;
+
+                IsDirty = true;
+                _taxRate = value;
+            }
+        }
+
         public bool AvailableForOrder
         {
             get => _availableForOrder;
@@ -107,6 +121,8 @@ namespace Shop.Core.Entites
 
             Media = new List<Media>();
         }
+
+        public decimal Price() => PricePreTax + (PricePreTax * TaxRate);
 
         public ProductComponent CreateReference(IReferenceGenerator referenceGenerator)
         {

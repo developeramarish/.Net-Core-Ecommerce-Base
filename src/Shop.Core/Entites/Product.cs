@@ -13,6 +13,7 @@ namespace Shop.Core.Entites
         private string _productShortDescription;
         private bool _availableForOrder;
         private decimal _pricePreTax;
+        private decimal _taxRate;
         private decimal _shippingWeightKg;
 
         [Key]
@@ -76,6 +77,17 @@ namespace Shop.Core.Entites
 
                 IsDirty = true;
                 _pricePreTax = value;
+            }
+        }
+        public decimal TaxRate
+        {
+            get => _taxRate;
+            set
+            {
+                if (_taxRate == value) return;
+
+                IsDirty = true;
+                _taxRate = value;
             }
         }
         public decimal ShippingWeightKg
