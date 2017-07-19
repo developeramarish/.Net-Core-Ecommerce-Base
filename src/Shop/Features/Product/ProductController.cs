@@ -14,6 +14,7 @@ namespace Shop.Features.Product
             _mediator = mediator;
         }
 
+        [HttpGet, Route("products")]
         public async Task<IActionResult> Index()
         {
 

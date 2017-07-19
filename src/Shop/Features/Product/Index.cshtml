@@ -1,0 +1,19 @@
+﻿@model Shop.Features.Product.Index.Model
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "_Layout";
+}
+
+<h2>Products</h2>
+
+@foreach (var product in Model.Products)
+{
+    <div>
+        <h3>@product.ProductName - @string.Format("{0:C}", product.Price)</h3>
+        <div>@product.ProductShortDescription</div>
+        <img src="@product.CoverImage.Url" alt="@product.ProductName image"/>
+        @Html.ActionLink("View Product", "View", "Products", new {productReference = product.ProductReference})
+
+    </div>
+}

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Shop.Core.BaseObjects;
 using Shop.Core.Enums;
 using Shop.Core.Interfaces;
@@ -142,7 +143,9 @@ namespace Shop.Core.Entites
             ComponentSlots = new List<ComponentSlot>();
         }
 
-        public decimal Price() => PricePreTax + (PricePreTax * TaxRate);
+        public decimal Price => PricePreTax + (PricePreTax * TaxRate);
+
+        public string CoverImageUrl => Media.OrderBy(x => x.Index).FirstOrDefault().Url;
 
         public Product CreateReference(IReferenceGenerator referenceGenerator)
         {

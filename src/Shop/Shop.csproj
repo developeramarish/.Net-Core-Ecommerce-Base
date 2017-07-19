@@ -28,6 +28,7 @@
     <PackageReference Include="OdeToCode.AddFeatureFolders" Version="1.0.4" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Features\Admin\" />
     <Folder Include="Features\Shared\" />
     <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\js\" />
