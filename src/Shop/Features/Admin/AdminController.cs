@@ -27,8 +27,8 @@ namespace Shop.Features.Admin
             return View(model);
         }
 
-        [HttpGet, Route("addproduct")]
-        public IActionResult AddProduct()
+        [HttpGet, Route("productcreate")]
+        public IActionResult ProductCreate()
         {
             return View();
         }

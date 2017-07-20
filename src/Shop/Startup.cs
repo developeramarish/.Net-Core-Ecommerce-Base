@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Shop.Core.Interfaces;
 using Shop.Infrastructure;
 using Shop.Infrastructure.Data;
+using HtmlTags;
 
 namespace Shop
 {
@@ -40,6 +41,8 @@ namespace Shop
             services.AddMediatR(typeof(Startup));
 
             services.AddScoped<IReferenceGenerator, CryptographicReferenceGenerator>();
+
+            services.AddHtmlTags(new TagConventions());
 
             services.AddDbContext<ShopContext>(
                 opt => opt.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
