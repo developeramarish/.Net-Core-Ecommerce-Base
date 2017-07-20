@@ -1,0 +1,23 @@
+﻿@model Shop.Features.Admin.Products.Model
+
+@{
+    ViewBag.Title = "Product Admin";
+    Layout = "_Layout";
+}
+
+
+<h2>Products</h2>
+
+@Html.ActionLink("Add Product", "AddProduct", "Admin")
+
+@foreach (var product in Model.Products)
+{
+    <div>
+        <h3>@product.ProductName - @string.Format("{0:C}", product.Price)</h3>
+        <div>@product.ProductShortDescription</div>
+        <img src="@product.CoverImageUrl" alt="@product.ProductName image" />
+        @Html.ActionLink("View Product", "View", "Products", new { productReference = product.ProductReference })
+
+    </div>
+}
+

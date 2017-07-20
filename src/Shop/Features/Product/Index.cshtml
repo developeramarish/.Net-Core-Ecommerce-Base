@@ -12,7 +12,7 @@
     <div>
         <h3>@product.ProductName - @string.Format("{0:C}", product.Price)</h3>
         <div>@product.ProductShortDescription</div>
-        <img src="@product.CoverImage.Url" alt="@product.ProductName image"/>
+        <img src="@product.CoverImageUrl" alt="@product.ProductName image"/>
         @Html.ActionLink("View Product", "View", "Products", new {productReference = product.ProductReference})
 
     </div>

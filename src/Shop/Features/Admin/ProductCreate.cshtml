@@ -1,0 +1,39 @@
+﻿@using Shop.Features
+@using Shop.Features.Admin
+@model ProductCreate.Command
+
+@{
+    ViewBag.Title = "Create Product";
+}
+
+<h2>Create Product</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        @Html.ValidationDiv()
+        @Html.FormBlock(m => m.ProductName)
+        @Html.FormBlock(m => m.ProductShortDescription)
+        @Html.FormBlock(m => m.ProductDescription)
+        @Html.FormBlock(m => m.Price)
+        @Html.FormBlock(m => m.TaxRate)
+        @Html.FormBlock(m => m.AvailableForOrder)
+        @Html.FormBlock(m => m.Configureable)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Admin")
+</div>
+

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Shop.Features.Product;
 using Shop.Infrastructure.Data;
 using Shop.Infrastructure.Data.Extensions;
 
@@ -12,13 +11,13 @@ namespace Shop.Features.Admin
 {
     public class Products
     {
-        public class Query : IRequest<Index.Model>
+        public class Query : IRequest<Model>
         {
         }
 
         public class Model
         {
-            public List<Index.Model.Product> Products { get; set; }
+            public List<Product> Products { get; set; }
 
             public class Product
             {
@@ -30,7 +29,7 @@ namespace Shop.Features.Admin
             }
         }
 
-        public class Handler : IAsyncRequestHandler<Index.Query, Index.Model>
+        public class Handler : IAsyncRequestHandler<Query, Model>
         {
             private readonly ShopContext _db;
 
@@ -39,7 +38,7 @@ namespace Shop.Features.Admin
                 _db = db;
             }
 
-            public async Task<Index.Model> Handle(Index.Query message)
+            public async Task<Model> Handle(Query message)
             {
                 var products = await _db.Products
                     .Active()
@@ -47,9 +46,9 @@ namespace Shop.Features.Admin
                     .OrderBy(p => p.PricePreTax)
                     .ToListAsync();
 
-                var viewModel = new Index.Model
+                var viewModel = new Model
                 {
-                    Products = products.Select(Mapper.Map<Core.Entites.Product, Index.Model.Product>).ToList()
+                    Products = products.Select(Mapper.Map<Core.Entites.Product, Model.Product>).ToList()
                 };
 
                 return viewModel;

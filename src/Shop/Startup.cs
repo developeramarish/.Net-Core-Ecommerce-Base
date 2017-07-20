@@ -7,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Shop.Core.Interfaces;
+using Shop.Infrastructure;
 using Shop.Infrastructure.Data;
 
 namespace Shop
@@ -36,6 +38,8 @@ namespace Shop
             Mapper.AssertConfigurationIsValid();
 
             services.AddMediatR(typeof(Startup));
+
+            services.AddScoped<IReferenceGenerator, CryptographicReferenceGenerator>();
 
             services.AddDbContext<ShopContext>(
                 opt => opt.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
