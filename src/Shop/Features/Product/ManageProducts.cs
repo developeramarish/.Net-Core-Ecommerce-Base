@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Shop.Infrastructure.Data;
 using Shop.Infrastructure.Data.Extensions;
 
-namespace Shop.Features.Admin
+namespace Shop.Features.Product
 {
-    public class Products
+    public class ManageProducts
     {
         public class Query : IRequest<Model>
         {

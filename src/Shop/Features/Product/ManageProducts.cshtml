@@ -1,4 +1,5 @@
-﻿@model Shop.Features.Admin.Products.Model
+﻿@using Shop.Features.Product
+@model Shop.Features.Product.ManageProducts.Model
 
 @{
     ViewBag.Title = "Product Admin";
@@ -6,9 +7,9 @@
 }
 
 
-<h2>Products</h2>
+<h2>Manage Products</h2>
 
-@Html.ActionLink("Add Product", "ProductCreate", "Admin")
+@Html.ActionLink("Add Product", "ProductCreate", "Product")
 
 @foreach (var product in Model.Products)
 {

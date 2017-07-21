@@ -5,7 +5,7 @@ using MediatR;
 using Shop.Core.Interfaces;
 using Shop.Infrastructure.Data;
 
-namespace Shop.Features.Admin
+namespace Shop.Features.Product
 {
     public class ProductCreate
     {

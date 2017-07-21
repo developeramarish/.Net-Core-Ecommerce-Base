@@ -19,27 +19,6 @@ namespace Shop.Features.Admin
             return View();
         }
 
-        [HttpGet, Route("products")]
-        public async Task<IActionResult> Products()
-        {
-            var model = await _mediator.Send(new Products.Query());
-
-            return View(model);
-        }
-
-        [HttpGet, Route("productcreate")]
-        public IActionResult ProductCreate()
-        {
-            return View();
-        }
-
-        [HttpPost, Route("productcreate")]
         
-        public async Task<IActionResult> ProductCreate(ProductCreate.Command command)
-        {
-            await _mediator.Send(command);
-
-            return this.RedirectToActionJson(nameof(Products));
-        }
     }
 }

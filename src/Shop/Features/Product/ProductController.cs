@@ -23,5 +23,43 @@ namespace Shop.Features.Product
             return View(model);
         }
 
+        [HttpGet, Route("manageproducts")]
+        public async Task<IActionResult> ManageProducts()
+        {
+            var model = await _mediator.Send(new ManageProducts.Query());
+
+            return View(model);
+        }
+
+        [HttpGet, Route("productcreate")]
+        public IActionResult ProductCreate()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("productcreate")]
+
+        public async Task<IActionResult> ProductCreate(ProductCreate.Command command)
+        {
+            await _mediator.Send(command);
+
+            return this.RedirectToActionJson(nameof(ManageProducts));
+        }
+
+        [HttpGet, Route("productdelete")]
+        public IActionResult ProductDelete()
+        {
+            return View();
+        }
+
+        [HttpPost, Route("productdelete")]
+
+        public async Task<IActionResult> ProductDelete(ProductDelete.Command command)
+        {
+            await _mediator.Send(command);
+
+            return this.RedirectToActionJson(nameof(ManageProducts));
+        }
+
     }
 }
