@@ -69,7 +69,8 @@ namespace Shop.Core.Entites
         public List<Media> Media { get; set; }
 
         [DataType(DataType.Currency)]
-        public decimal PricePreTax
+
+        public decimal Price
         {
             get => _pricePreTax;
             set
@@ -135,15 +136,13 @@ namespace Shop.Core.Entites
             ProductId = 0;
             ProductReference = string.Empty;
 
-            PricePreTax = 0.0M;
+            Price = 0.0M;
             ShippingWeightKg = 0.0M;
 
             Media = new List<Media>();
             CompatibleComponents = new List<ProductComponentCompatibility>();
             ComponentSlots = new List<ComponentSlot>();
         }
-
-        public decimal Price => PricePreTax + (PricePreTax * TaxRate);
 
         public string CoverImageUrl => Media.OrderBy(x => x.Index).FirstOrDefault()?.Url;
 

@@ -66,7 +66,7 @@ namespace Shop.Core.Entites
         }
 
         [DataType(DataType.Currency)]
-        public decimal PricePreTax
+        public decimal Price
         {
             get => _pricePreTax;
             set
@@ -121,8 +121,6 @@ namespace Shop.Core.Entites
 
             Media = new List<Media>();
         }
-
-        public decimal Price() => PricePreTax + (PricePreTax * TaxRate);
 
         public ProductComponent CreateReference(IReferenceGenerator referenceGenerator)
         {

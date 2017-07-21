@@ -61,8 +61,7 @@ namespace Shop.Features.Product
         {
             public MappingProfile()
             {
-                CreateMap<Command, Core.Entites.Product>(MemberList.None)
-                    .ForMember(p => p.PricePreTax, opt => opt.MapFrom( p => p.Price / 2));
+                CreateMap<Command, Core.Entites.Product>(MemberList.None);
             }
         }
     }

@@ -9,9 +9,10 @@ using Shop.Core.Enums;
 namespace Shop.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    partial class ShopContextModelSnapshot : ModelSnapshot
+    [Migration("20170721144447_ChangePriceStorage")]
+    partial class ChangePriceStorage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

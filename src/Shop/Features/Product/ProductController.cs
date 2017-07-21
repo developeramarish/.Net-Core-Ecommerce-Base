@@ -54,12 +54,20 @@ namespace Shop.Features.Product
             return View(model);
         }
 
+        [HttpPost, Route("productedit")]
+        public async Task<IActionResult> ProductEdit(ProductEdit.Command command)
+        {
+            await _mediator.Send(command);
+
+            return this.RedirectToActionJson(nameof(ManageProducts));
+        }
+
         [HttpGet, Route("productdelete")]
         public async Task<IActionResult> ProductDelete(ProductDelete.Query query)
         {
-            var model = await _mediator.Send(query);
+            await _mediator.Send(query);
 
-            return View(model);
+            return this.RedirectToActionJson(nameof(ManageProducts));
         }
 
         [HttpPost, Route("productdelete")]

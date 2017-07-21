@@ -43,7 +43,7 @@ namespace Shop.Features.Product
                 var products = await _db.Products
                     .Active()
                     .Where(p => p.AvailableForOrder)
-                    .OrderBy(p => p.PricePreTax)
+                    .OrderBy(p => p.Price)
                     .ToListAsync();
                 
                 var viewModel = new Model

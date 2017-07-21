@@ -12,7 +12,7 @@ namespace Shop.Infrastructure.Data.Mappers
             target.ProductComponentName = source.ProductComponentName;
             target.ProductComponentDescription = source.ProductComponentDescription;
             target.ComponentSlot = source.ComponentSlot;
-            target.PricePreTax = source.PricePreTax;
+            target.Price = source.Price;
             target.AvailableForOrder = source.AvailableForOrder;
             target.ShippingWeightKg = source.ShippingWeightKg;
 
