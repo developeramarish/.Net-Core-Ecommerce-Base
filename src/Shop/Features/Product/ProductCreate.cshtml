@@ -9,7 +9,7 @@
 <h2>Create Product</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("productcreate", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 

@@ -42,8 +42,7 @@ namespace Shop.Features.Admin
             {
                 var products = await _db.Products
                     .Active()
-                    .Where(p => p.AvailableForOrder)
-                    .OrderBy(p => p.PricePreTax)
+                    .OrderBy(p => p.DateCreated)
                     .ToListAsync();
 
                 var viewModel = new Model
@@ -52,6 +51,14 @@ namespace Shop.Features.Admin
                 };
 
                 return viewModel;
+            }
+        }
+
+        public class MappingProfile : AutoMapper.Profile
+        {
+            public MappingProfile()
+            {
+                CreateMap<Core.Entites.Product, Model.Product>(MemberList.None);
             }
         }
     }

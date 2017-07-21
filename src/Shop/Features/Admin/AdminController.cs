@@ -33,12 +33,13 @@ namespace Shop.Features.Admin
             return View();
         }
 
-        [HttpPut, Route("addproduct")]
-        public async Task<IActionResult> AddProduct(ProductCreate.Command command)
+        [HttpPost, Route("productcreate")]
+        
+        public async Task<IActionResult> ProductCreate(ProductCreate.Command command)
         {
             await _mediator.Send(command);
 
-            return RedirectToAction("Products");
+            return this.RedirectToActionJson(nameof(Products));
         }
     }
 }

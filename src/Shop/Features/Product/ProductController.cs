@@ -22,5 +22,6 @@ namespace Shop.Features.Product
 
             return View(model);
         }
+
     }
 }

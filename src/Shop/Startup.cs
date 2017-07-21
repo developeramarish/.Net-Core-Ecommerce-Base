@@ -11,6 +11,8 @@ using Shop.Core.Interfaces;
 using Shop.Infrastructure;
 using Shop.Infrastructure.Data;
 using HtmlTags;
+using Shop.Features;
+using Shop.Filters;
 
 namespace Shop
 {
@@ -30,7 +32,10 @@ namespace Shop
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()
+            services.AddMvc(opt =>
+                {
+                    opt.Filters.Add(typeof(ValidatorActionFilter));
+                })
                 .AddFeatureFolders()
                 .AddFluentValidation(cfg => { cfg.RegisterValidatorsFromAssemblyContaining<Startup>(); })
             ;

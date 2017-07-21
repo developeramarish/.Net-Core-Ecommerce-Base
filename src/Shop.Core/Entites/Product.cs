@@ -145,7 +145,7 @@ namespace Shop.Core.Entites
 
         public decimal Price => PricePreTax + (PricePreTax * TaxRate);
 
-        public string CoverImageUrl => Media.OrderBy(x => x.Index).FirstOrDefault().Url;
+        public string CoverImageUrl => Media.OrderBy(x => x.Index).FirstOrDefault()?.Url;
 
         public Product CreateReference(IReferenceGenerator referenceGenerator)
         {

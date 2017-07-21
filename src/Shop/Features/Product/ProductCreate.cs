@@ -51,7 +51,18 @@ namespace Shop.Features.Admin
 
                 await _db.Products.AddAsync(product);
 
+                await _db.SaveChangesAsync();
+
                 return product.ProductReference;
+            }
+        }
+
+        public class MappingProfile : AutoMapper.Profile
+        {
+            public MappingProfile()
+            {
+                CreateMap<Command, Core.Entites.Product>(MemberList.None)
+                    .ForMember(p => p.PricePreTax, opt => opt.MapFrom( p => p.Price / 2));
             }
         }
     }
