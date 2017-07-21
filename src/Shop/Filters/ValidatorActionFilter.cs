@@ -18,7 +18,7 @@ namespace Shop.Filters
                 else
                 {
                     var result = new ContentResult();
-                    string content = JsonConvert.SerializeObject(filterContext.ModelState,
+                    var content = JsonConvert.SerializeObject(filterContext.ModelState,
                         new JsonSerializerSettings
                         {
                             ReferenceLoopHandling = ReferenceLoopHandling.Ignore

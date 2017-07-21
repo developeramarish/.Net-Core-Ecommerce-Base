@@ -24,11 +24,11 @@ namespace Shop.Features.Product
         {
             public CommandValidator()
             {
-                RuleFor(x => x.ProductName).NotNull();
-                RuleFor(x => x.ProductShortDescription).NotNull();
-                RuleFor(x => x.ProductDescription).NotNull();
-                RuleFor(x => x.Price).NotNull();
-                RuleFor(x => x.TaxRate).NotNull();
+                RuleFor(x => x.ProductName).NotEmpty().NotNull();
+                RuleFor(x => x.ProductShortDescription).NotEmpty().NotNull();
+                RuleFor(x => x.ProductDescription).NotEmpty().NotNull();
+                RuleFor(x => x.Price).NotEmpty().NotNull();
+                RuleFor(x => x.TaxRate).NotEmpty().NotNull();
             }
         }
 

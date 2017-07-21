@@ -1,5 +1,5 @@
 ﻿@using Shop.Features.Product
-@model Shop.Features.Product.ManageProducts.Model
+@model ManageProducts.Model
 
 @{
     ViewBag.Title = "Product Admin";
@@ -16,8 +16,7 @@
     <div>
         <h3>@product.ProductName - @string.Format("{0:C}", product.Price)</h3>
         <div>@product.ProductShortDescription</div>
-        <img src="@product.CoverImageUrl" alt="@product.ProductName image" />
-        @Html.ActionLink("View Product", "View", "Products", new { productReference = product.ProductReference })
+        @Html.ActionLink("Delete Product", "ProductDelete", "Product", new { productReference = product.ProductReference })
 
     </div>
 }

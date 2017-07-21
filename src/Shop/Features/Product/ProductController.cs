@@ -47,9 +47,11 @@ namespace Shop.Features.Product
         }
 
         [HttpGet, Route("productdelete")]
-        public IActionResult ProductDelete()
+        public async Task<IActionResult> ProductDelete(ProductDelete.Query query)
         {
-            return View();
+            var model = await _mediator.Send(query);
+
+            return View(model);
         }
 
         [HttpPost, Route("productdelete")]
