@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Shop.Features.Home;
 
 namespace Shop.Features.Customer
 {
@@ -28,7 +29,7 @@ namespace Shop.Features.Customer
         {
             await _mediator.Send(command);
 
-            return RedirectToAction("Index", "Home");
+            return new HomeController().RedirectToActionJson(nameof(HomeController.Index));
         }
     }
 }

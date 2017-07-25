@@ -17,7 +17,6 @@ namespace Shop.Features.Product
         [HttpGet, Route("~/products")]
         public async Task<IActionResult> Index()
         {
-
             var model = await _mediator.Send(new Index.Query());
 
             return View(model);

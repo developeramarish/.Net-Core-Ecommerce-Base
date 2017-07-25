@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Shop.Core.Interfaces;
 using Shop.Extensions;
 using Shop.Infrastructure.Data;
@@ -25,12 +23,12 @@ namespace Shop.Features.Customer
 
         public class CommandValidator : AbstractValidator<Command>
         {
-            public CommandValidator()
+            public CommandValidator(ShopContext db)
             {
                 RuleFor(x => x.Title).NotNull()
-                    .WithMessage("Title cannot be empty")
-                    .Length(1, 25)
-                    .WithMessage("Title too long");
+                     .WithMessage("Title cannot be empty")
+                     .Length(1, 25)
+                     .WithMessage("Title too long");
                 RuleFor(x => x.Name)
                     .NotNull()
                     .WithMessage("Name cannot be empty")
@@ -40,7 +38,9 @@ namespace Shop.Features.Customer
                     .NotNull()
                     .WithMessage("Email address cannot be empty")
                     .EmailAddress()
-                    .WithMessage("Must be a valid email address");
+                    .WithMessage("Must be a valid email address")
+                    .Must(x => !db.Customers.Any(y => y.EmailAddress == x))
+                    .WithMessage("That email address is already in use");
                 RuleFor(x => x.Password).Password();
                 RuleFor(x => x.ConfirmPassword)
                     .Equal(x => x.Password)
@@ -63,12 +63,6 @@ namespace Shop.Features.Customer
 
             public async Task<string> Handle(Command message)
             {
-
-                if (await _db.Customers.Where(x => x.EmailAddress == message.EmailAddress).AnyAsync())
-                {
-                    throw new ValidationException("Email Address already taken");
-                }
-
                 var salt = Guid.NewGuid().ToByteArray();
                 var customer = new Core.Entites.Customer
                 {
@@ -88,7 +82,5 @@ namespace Shop.Features.Customer
                 return customer.CustomerReference;
             }
         }
-
-        
     }
 }

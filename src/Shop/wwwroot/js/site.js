@@ -21,7 +21,7 @@ var highlightErrors = function (xhr) {
         showSummary(data);
         window.scrollTo(0, 0);
     } catch (e) {
-        // (Hopefully) caught by the generic error handler in `config.js`.
+        const a = e; // (Hopefully) caught by the generic error handler in `config.js`.
     }
 };
 var showSummary = function (response) {
