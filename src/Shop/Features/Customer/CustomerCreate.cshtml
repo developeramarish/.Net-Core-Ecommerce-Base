@@ -1,0 +1,29 @@
+﻿@using Shop.Features
+@model Shop.Features.Customer.CustomerCreate.Command
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Register</h2>
+
+
+@using (Html.BeginForm("register", "Customer", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationDiv()
+        @Html.FormBlock(m => m.Title)
+        @Html.FormBlock(m => m.Name)
+        @Html.FormBlock(m => m.EmailAddress)
+        @Html.FormBlock(m => m.Password)
+        @Html.FormBlock(m => m.ConfirmPassword)
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Register" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

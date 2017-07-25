@@ -46,6 +46,7 @@ namespace Shop
             services.AddMediatR(typeof(Startup));
 
             services.AddScoped<IReferenceGenerator, CryptographicReferenceGenerator>();
+            services.AddScoped<IPasswordHasher, PasswordHasher>();
 
             services.AddHtmlTags(new TagConventions());
 
